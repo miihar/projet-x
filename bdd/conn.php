@@ -108,12 +108,12 @@ class MaConnexion{
     // Fonction d'insertion des Videos (fonctionne)
     public function insertionTest($descript,$mail){
         try {
-            $requete = " INSERT INTO test(Description,AdressEmail)
-                VALUES (:Description,:AdressEmail)" ;
+            $requete = " INSERT INTO test(Description,AdresseEmail)
+                VALUES (:Description,:AdresseEmail)" ;
             $requete_preparee = $this->connexionPDO->prepare($requete);
 
             $requete_preparee->bindParam(':Description',$descript,PDO::PARAM_STR);
-            $requete_preparee->bindParam(':AdressEmail',$mail,PDO::PARAM_STR);
+            $requete_preparee->bindParam(':AdresseEmail',$mail,PDO::PARAM_STR);
 
             $requete_preparee->execute();
             echo ("insertion reussi");
