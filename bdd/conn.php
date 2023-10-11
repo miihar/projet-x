@@ -113,7 +113,7 @@ class MaConnexion{
             $requete_preparee = $this->connexionPDO->prepare($requete);
 
             $requete_preparee->bindParam(':Description',$descript,PDO::PARAM_STR);
-            $requete_preparee->bindParam(':AdressMail',$mail,PDO::PARAM_STR);
+            $requete_preparee->bindParam(':AdressEmail',$mail,PDO::PARAM_STR);
 
             $requete_preparee->execute();
             echo ("insertion reussi");
