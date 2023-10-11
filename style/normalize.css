@@ -1,0 +1,24 @@
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+/* img {
+    width: 125px;
+} */
+
+.one {
+    gap: 2%;
+}
+.one div{
+    margin: 15px;
+}
+p {
+    text-align: justify;
+}
+
+.carto {
+    display: flex;
+    flex-direction: row;
+}
