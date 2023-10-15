@@ -253,8 +253,8 @@ class MaConnexion{
 
 }
 
-$conn = new MaConnexion("sc3nuxz4136_mbaecari-abdourahim.projet_x", "OM-RUN_DPS_DWWM_AFC_Avril23", "sc3nuxz4136", "localhost");
-$test = $conn->insertionTest("oui c'est une description","mail@mail.co");
+// $conn = new MaConnexion("sc3nuxz4136_mbaecari-abdourahim.projet_x", "OM-RUN_DPS_DWWM_AFC_Avril23", "sc3nuxz4136", "localhost");
+// $test = $conn->insertionTest("oui c'est une description","mail@mail.co");
 var_dump($test);
 
 //$supp = $test->select("video");
