@@ -53,7 +53,7 @@
                     $article = $test;
                     foreach ($article as $donnee) {
                         echo   '<div class="col p-2">
-                                        <div class="card" style="width: 10rem;">
+                                        <div class="card" style="width: 9rem;">
                                             <img src="../img/gary-bendig-6GMq7AGxNbE-unsplash.jpg" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">' . $donnee['Titre'] . '</h5>
