@@ -41,7 +41,7 @@
     </header>
 
     <main class="container mt-4">
-        <h1>Le titre de votre site</h1>
+        <h1>Le titre du site</h1>
 
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <!-- équateur -->

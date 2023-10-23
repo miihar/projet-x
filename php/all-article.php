@@ -1,3 +1,7 @@
+<?php include "../bdd/conn.php" ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,45 +40,46 @@
         </nav>
     </header>
 
-    <main>
-        <div class="grid text-center">
-            <div>
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+    <main class="container mt-4">
+        <h1>Le titre du site</h1>
+
+        <div class="container">
+            <div class="row row-cols-md-2 g-6">
+                <!-- card part -->
+                <div class="col d-flex flex-wrap">
+                    <?php
+                    // '.$donnee['Img'].'
+                    $test = $conn->select("Article");
+                    $article = $test;
+                    foreach ($article as $donnee) {
+                        echo   '<div class="col p-2">
+                                        <div class="card" style="width: 10rem;">
+                                            <img src="../img/gary-bendig-6GMq7AGxNbE-unsplash.jpg" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">' . $donnee['Titre'] . '</h5>
+                                                <p class="card-text">' . $donnee['Description'] . '</p>
+                                                <a href="#" class="btn btn-outline-info btn-sm">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>';
+                    };
+                    ?>
                 </div>
-            </div>
-            <div>
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                <!-- info part -->
+                <div class="col">
+                    <!-- script -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Actu</h5>
+                            <ul class="list-group">
+                                <?php
+                                    foreach  ($article as $donnee) {
+                                        echo
+                                        '<li class="list-group-item">' . $donnee['Date'] . ' | '. $donnee['Titre'] . '</li>';
+                                    };
+                                ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
