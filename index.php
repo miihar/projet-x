@@ -1,3 +1,5 @@
+<?php include "bdd/conn.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,33 +45,45 @@
     <main class="container mt-4">
         <h1>Le titre du site</h1>
 
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            <!-- équateur -->
-            <div class="col">
-                <div class="card">
-                    <img src="img/thomas-bonometti-OyO5NDiRPMM-unsplash.jpg" class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title">Titre de l'article</h5>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Asperiores facere, aperiam suscipit eligendi nisi quidem autem officia explicabo,
-                            repudiandae provident quos delectus reiciendis quo laudantium,
-                            harum quasi praesentium deserunt. Quae?
-                        </p>
-                    </div>
+        <div class="container">
+            <div class="row">
+                <!-- card part -->
+                <div class="col">
+                    <?php
+                        // '.$donnee['Img'].'
+                        $test = $conn->select("Article");
+                        $article = $test;
+                        foreach ($article as $donnee) {
+                        echo   '<div class="col p-2">
+                                    <div class="card">
+                                        <img src="img/gary-bendig-6GMq7AGxNbE-unsplash.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">' . $donnee['Titre'] . '</h5>
+                                            <p class="card-text">' . $donnee['Description'] . '</p>
+                                            <a href="#" class="btn btn-outline-info btn-sm">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>';
+                        };
+                    ?>
                 </div>
-            </div>
-
-            <!-- partie de droite avec les actu -->
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Actu</h5>
-                        <ul class="list-group">
-                            <li class="list-group-item">Info 1</li>
-                            <li class="list-group-item">Info 2</li>
-                            <li class="list-group-item">Info 3</li>
-                        </ul>
+                <!-- info part -->
+                <div class="col">
+                    <!-- script -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Actu</h5>
+                            <ul class="list-group">
+                                <?php
+                                    $tnews = $conn->selectLimit("Article");
+                                    $news = $tnews;
+                                    foreach  ($news as $actu) {
+                                        echo
+                                        '<li class="list-group-item">' . $actu['Date'] . ' | '. $actu['Titre'] . '</li>';
+                                    };
+                                ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

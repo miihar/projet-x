@@ -1,7 +1,5 @@
 <?php include "../bdd/conn.php" ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +24,7 @@
                             <a class="nav-link active" aria-current="page" href="../index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/php/all-article.php">All Article</a>
+                            <a class="nav-link" href="./all-article.php">All Article</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../php/article-page.php">exemple Article 1</a>
@@ -73,9 +71,11 @@
                             <h5 class="card-title">Actu</h5>
                             <ul class="list-group">
                                 <?php
-                                    foreach  ($article as $donnee) {
+                                    $tnews = $conn->selectLimit("Article");
+                                    $news = $tnews;
+                                    foreach  ($news as $actu) {
                                         echo
-                                        '<li class="list-group-item">' . $donnee['Date'] . ' | '. $donnee['Titre'] . '</li>';
+                                        '<li class="list-group-item">' . $actu['Date'] . ' | '. $actu['Titre'] . '</li>';
                                     };
                                 ?>
                             </ul>

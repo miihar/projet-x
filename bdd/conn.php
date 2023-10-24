@@ -25,6 +25,19 @@ class MaConnexion{
     }
 
     //Fonction qui selectionne tous les elements d'une table
+    public function selectLimit($table){
+        try {
+            $requete = "SELECT * from $table LIMIT 5";
+            $resultat = $this->connexionPDO->query($requete);
+                
+            $resultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+            return $resultat;
+            
+        } catch (PDOException $e) {
+                echo "Erreur : ".$e->getMessage();
+        }  
+    }
+
     public function select($table){
         try {
             $requete = "SELECT * from $table";

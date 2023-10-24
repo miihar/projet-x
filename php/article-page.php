@@ -25,7 +25,7 @@
                             <a class="nav-link" href="../php/all-article.php">All Article</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../php/article-page.php">exemple Article 1</a>
+                            <a class="nav-link" href="article-page.php">exemple Article 1</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true">TBA</a>
