@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style/normalize.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -36,22 +38,35 @@
     </header>
 
     <main>
-        <!-- formulaire de connexion -->
         <section class="partieConnexion">
-            <h3>Connectez-vous</h3>
-            <form action="BDD/select.php" method="POST">
-                <div class="placementLabelFormulaire">
-                    <label class="tailleLabel" for="connexionUtilisateur">Utilisateur:</label>
-                    <input class="tailleInput" id="connexionUtilisateur" type="text" name= "identifiant" placeholder="Utilisateur">
-                </div>
-                <div class="placementLabelFormulaire">
-                    <label class="tailleLabel" for="connexionMotDePasse">Mot de passe:</label>
-                    <input class="tailleInput" id="connexionMotDePasse" type=" password" name="mdp" placeholder="Mot de passe">
-                </div>
+            <h3>Inscrivez-vous</h3>
+            <div class="card d-flex" style="width: 18rem;">
+                <form action="BDD/insertionusers.php" method="POST">
+                    <div class="placementLabelFormulaire">
+                        <label class="tailleLabel" for="inscriptionNom">Nom:</label>
+                        <input class="tailleInput" id="inscriptionNom" type="text" placeholder="Nom" name="Nom">
+                    </div>
+                    <div class="placementLabelFormulaire">
+                        <label class="tailleLabel" for="inscriptionPrenom">Prenom:</label>
+                        <input class="tailleInput" id="inscriptionPrenom" type="text" placeholder="Prenom" name="Prenom">
+                    </div>
+                    <div class="placementLabelFormulaire">
+                        <label class="tailleLabel" for="inscriptionAdresseMail">Adresse email:</label>
+                        <input class="tailleInput" id="inscriptionAdresseMail" type="text" placeholder="AdresseMail" name="AdresseEmail">
+                    </div>
+                    <div class="placementLabelFormulaire">
+                        <label class="tailleLabel" for="inscriptionPseudo">Pseudo:</label>
+                        <input class="tailleInput" id="inscriptionPseudo" type="text" placeholder="Pseudo" name="Pseudo">
+                    </div>
+                    <div class="placementLabelFormulaire">
+                        <label class="tailleLabel" for="inscriptionMotDePasse">Mot de passe:</label>
+                        <input class="tailleInput" id="inscriptionMotDePasse" type="text" placeholder="Mot de passe" name="Mot_De_Passe">
+                    </div>
+                    <input type="hidden" name="ID_Role" value="2">
 
-                <input class="boutonFormulaire" type="submit" name="" id="">
-
-            </form>
+                    <input class="boutonFormulaire" type="submit" id="">
+                </form>
+            </div>
         </section>
     </main>
 
@@ -65,4 +80,5 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
+
 </html>

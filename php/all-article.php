@@ -1,4 +1,4 @@
-<?php include "../bdd/conn.php" ?>
+<?php include "../php/bdd/conn.php" ?>
 
 <!DOCTYPE html>
 <html lang="en">

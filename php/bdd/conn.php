@@ -24,7 +24,7 @@ class MaConnexion{
         }        
     }
 
-    //Fonction qui selectionne tous les elements d'une table
+    //Fonction qui selectionne tous les elements d'une table LIMIT 5
     public function selectLimit($table){
         try {
             $requete = "SELECT * from $table LIMIT 5";
@@ -107,10 +107,10 @@ class MaConnexion{
     }
     
     //Fonction d'insertion d'utilisateur 
-    public function insertionUtilisateur($nom,$prenom,$pseudo,$mail,$mdp,$id){
+    public function insertionUtilisateur($nom,$prenom,$pseudo,$mail,$mdp,$role){
         try {
-            $requete = " INSERT INTO utilisateur(Nom, Prenom,Email,Pseudo,MDP,ID_Role)
-                VALUES (:Nom, :Prenom,:Email,:Pseudo,:MDP,:ID_Role)";
+            $requete = " INSERT INTO utilisateur(Nom, Prenom,Email,Pseudo,MDP,Role)
+                VALUES (:Nom, :Prenom,:Email,:Pseudo,:MDP,:Role)";
             $requete_preparee = $this->connexionPDO->prepare($requete);
 
             $requete_preparee->bindParam(':Nom',$nom,PDO::PARAM_STR,30);
@@ -118,7 +118,7 @@ class MaConnexion{
             $requete_preparee->bindParam(':Email',$mail,PDO::PARAM_STR);
             $requete_preparee->bindParam(':Pseudo',$pseudo,PDO::PARAM_STR);
             $requete_preparee->bindParam(':MDP',$mdp,PDO::PARAM_STR);
-            $requete_preparee->bindParam(':ID_Role',$id,PDO::PARAM_INT);
+            $requete_preparee->bindParam(':Role',$role,PDO::PARAM_INT);
             
             $requete_preparee->execute();
             echo ("insertion reussi");
@@ -215,25 +215,6 @@ class MaConnexion{
             //         return $e->getMessage();
             //     }
         // }
-    //     // Fonction selection des commentaire et leurs editeurs par rapport a la Article 
-    // public function selectCommentaireUtilisateurArticle($idArticle){
-        
-    //     try {
-    //         $requete = "SELECT * FROM `commentaire`  
-    //             INNER JOIN utilisateur ON utilisateur.ID_Utilisateur = commentaire.ID_Utilisateur 
-    //             where commentaire.ID_Article = ?";
-            
-    //         $requete_preparee = $this->connexionPDO->prepare($requete);
-
-    //         $requete_preparee->bindValue(1, $idArticle, PDO::PARAM_STR);
-
-    //         $resultat = $requete_preparee->execute();
-    //         $resultat = $requete_preparee->fetchAll(PDO::FETCH_ASSOC);
-    //         return $resultat;
-    //     } catch (PDOException $error) {
-    //         return "Erreur : " . $error->getMessage();
-    //     }
-    // }
 
 }
 
