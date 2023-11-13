@@ -51,6 +51,19 @@ class MaConnexion{
         }  
     }
 
+    public function selectUtilisateur(){
+        try {
+            $requete = "SELECT * from utilisateur";
+            $resultat = $this->connexionPDO->query($requete);
+                
+            $resultat = $resultat->fetchAll(PDO::FETCH_ASSOC);
+            return $resultat;
+            
+        } catch (PDOException $e) {
+                echo "Erreur : ".$e->getMessage();
+        }  
+    }
+
     // Fonction selection des article par categorie (fonctionne)
     public function selectArticle_Categorie($categorie){
         try {
@@ -82,7 +95,7 @@ class MaConnexion{
     }
 
    
-    // Fonction d'insertion des article (fonctionne)
+    // Fonction d'insertion des article (no test)
     public function insertionArticle($titre,$categorie,$p_un,$p_deux,$img,$date){
         try {
             $requete = " INSERT INTO Article(Titre,Categorie,Texte_un,Texte_deux,Texte_trois,Img,Date)
@@ -106,10 +119,10 @@ class MaConnexion{
         }
     }
     
-    //Fonction d'insertion d'utilisateur 
+    //Fonction d'insertion d'utilisateur (fonctionne)
     public function insertionUtilisateur($nom,$prenom,$pseudo,$mail,$mdp,$role){
         try {
-            $requete = " INSERT INTO utilisateur(Nom, Prenom,Email,Pseudo,MDP,Role)
+            $requete = " INSERT INTO utilisateur(Nom, Prenom,Mail,Pseudo,Mdp,Role)
                 VALUES (:Nom, :Prenom,:Email,:Pseudo,:MDP,:Role)";
             $requete_preparee = $this->connexionPDO->prepare($requete);
 
@@ -122,14 +135,14 @@ class MaConnexion{
             
             $requete_preparee->execute();
             echo ("insertion reussi");
-            return "insertion reussi";
+             return "insertion reussi";
 
         } catch(PDOException $e) {
-            return $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
-    // Fonction de mis à jour des article (fonctionne)
+    // Fonction de mis à jour des article (no test)
     public function maj_Article($titre,$categorie,$p_un,$p_deux,$img,$date){
         try {
 
@@ -157,7 +170,7 @@ class MaConnexion{
         }
     }
 
-    // Fonction de suppression des article (fonctionne)
+    // Fonction de suppression des article (no test)
     public function deleteArticle($idArticle){
         try{
             $requete = "DELETE FROM Article WHERE ID_Article =  ?";
